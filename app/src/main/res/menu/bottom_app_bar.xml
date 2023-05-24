@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/homeButtonMenu"
+        android:title="Home"
+        android:icon="@drawable/baseline_home_bottom_menu"
+        android:contentDescription="Pagina principal" />
+
+    <item
+        android:id="@+id/graphicButtonMenu"
+        android:title="Gráficos"
+        android:icon="@drawable/baseline_table_bottom_menu"
+        android:contentDescription="Pagina de gráficos" />
+
+</menu>

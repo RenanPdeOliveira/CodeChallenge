@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingVertical="8dp"
+    android:stretchColumns="1,2,3,4,5,6">
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/tvAnimalRow"
+            style="@style/recyclerViewTableItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:maxLength="5"
+            tools:text="12345" />
+
+        <TextView
+            android:id="@+id/tvBaiaRow"
+            style="@style/recyclerViewTableItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_column="2"
+            android:maxLength="1"
+            tools:text="12" />
+
+        <TextView
+            android:id="@+id/tvDelRow"
+            style="@style/recyclerViewTableItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_column="3"
+            android:maxLength="3"
+            tools:text="12345" />
+
+        <TextView
+            android:id="@+id/tvPrimeiroRow"
+            style="@style/recyclerViewTableItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_column="4"
+            android:maxLength="4"
+            tools:text="123" />
+
+        <TextView
+            android:id="@+id/tvSegundoRow"
+            style="@style/recyclerViewTableItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_column="5"
+            android:maxLength="4"
+            tools:text="123" />
+
+        <TextView
+            android:id="@+id/tvTotalRow"
+            style="@style/recyclerViewTableItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_column="6"
+            android:maxLength="4"
+            tools:text="123" />
+
+    </TableRow>
+
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp" />
+
+</TableLayout>

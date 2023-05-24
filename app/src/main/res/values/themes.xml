@@ -1,0 +1,96 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.CodeChallenge" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/blueLight</item>
+    </style>
+
+    <style name="Theme.CodeChallenge" parent="Base.Theme.CodeChallenge" />
+
+    <!-- Home Page CardView Layout -->
+    <style name="cardViewTitleHomePage" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="cardViewNumHomePage" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="cardViewHomePage" parent="Widget.MaterialComponents.CardView">
+        <item name="cardElevation">8dp</item>
+        <item name="cardCornerRadius">8dp</item>
+        <item name="android:backgroundTint">@color/blue</item>
+        <item name="android:layout_marginStart">4dp</item>
+        <item name="android:layout_marginEnd">4dp</item>
+    </style>
+
+    <!-- Graphic Page CardView Layout -->
+    <style name="cardViewTitleGraphicPage" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="cardViewNumGraphicPage" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">36sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="cardViewGraphicPage" parent="Widget.MaterialComponents.CardView">
+        <item name="cardElevation">8dp</item>
+        <item name="cardCornerRadius">8dp</item>
+        <item name="android:backgroundTint">@color/blue</item>
+        <item name="android:layout_margin">8dp</item>
+    </style>
+
+    <!-- Table Item Layout -->
+    <style name="textViewTableItem" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">18sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:layout_marginBottom">4dp</item>
+    </style>
+
+    <style name="recyclerViewTableItem" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">20sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- ToolBar -->
+    <style name="toolBarTitle" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">25sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!-- Bottom Navigation -->
+    <style name="bottomNavigationView" parent="Widget.Material3.BottomNavigationView">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.BottomNavigationView</item>
+    </style>
+
+    <style name="ThemeOverlay.App.BottomNavigationView" parent="">
+        <item name="colorSurface">@color/white</item>
+        <item name="colorOnSurface">@color/blue</item>
+        <item name="colorOnSurfaceVariant">@color/white</item>
+        <item name="colorOnSecondaryContainer">@color/blue</item>
+    </style>
+
+    <!-- Toggle Button -->
+    <style name="toggleButton" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="strokeColor">@color/blue</item>
+    </style>
+
+    <!-- Title -->
+    <style name="title1" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/blue</item>
+        <item name="android:layout_marginTop">8dp</item>
+    </style>
+</resources>
