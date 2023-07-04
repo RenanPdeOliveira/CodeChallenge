@@ -3,6 +3,10 @@ EN - This was the first code challenge that i did where i got my first freelance
 
 PT - Este foi o primeiro code challenge que eu fiz no qual consegui minha primeira oportunidade de freelancer como Desenvolvedor Android
 
+## :camera_flash: Screenshots
+<!-- You can add more screenshots here if you like -->
+<img src="/results/Screenshot_CodeChallenge_3.png" width="260">&emsp;<img src="/results/Screenshot_CodeChallenge_1.png" width="260">&emsp;<img src="/results/Screenshot_CodeChallenge_2.png" width="260"><img src="/results/Screenshot_CodeChallenge_4.png" width="260">
+
 
 ## Technologies
 * Kotlin
