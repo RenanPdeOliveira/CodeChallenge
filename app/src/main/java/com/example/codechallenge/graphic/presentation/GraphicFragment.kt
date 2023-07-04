@@ -1,11 +1,12 @@
-package com.example.codechallenge.presentation
+package com.example.codechallenge.graphic.presentation
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ProgressBar
+import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -16,13 +17,10 @@ import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.db.williamchart.view.HorizontalBarChartView
 import com.example.codechallenge.R
-import com.example.codechallenge.data.ActionType
-import com.example.codechallenge.data.GraphicType
-import com.example.codechallenge.data.entities.CardItem
-import com.example.codechallenge.data.entities.GraphicItem
-import com.example.codechallenge.presentation.adapter.CardViewListAdapter
-import com.example.codechallenge.presentation.adapter.GraphicItemListAdapter
-import com.example.codechallenge.presentation.viewmodel.GraphicViewModel
+import com.example.codechallenge.main.data.ActionType
+import com.example.codechallenge.graphic.data.GraphicType
+import com.example.codechallenge.graphic.data.entities.CardItem
+import com.example.codechallenge.graphic.data.entities.GraphicItem
 import com.google.android.material.button.MaterialButtonToggleGroup
 import org.json.JSONException
 
@@ -31,7 +29,12 @@ class GraphicFragment : Fragment() {
     private lateinit var horizontalBarChart: HorizontalBarChartView
     private lateinit var toggleButton: MaterialButtonToggleGroup
     private lateinit var rvCardView: RecyclerView
-    private lateinit var progressBarGraphic: ProgressBar
+    private lateinit var imageViewEmpty: ImageView
+    private lateinit var textViewEmpty: TextView
+    private var totalLitros: String? = null
+    private var totalAnimais: String? = null
+    private var mediaPrimeiro: String? = null
+    private var mediaSegunda: String? = null
 
     private val graphicAdapter = GraphicItemListAdapter()
     private val cardAdapter = CardViewListAdapter()
@@ -54,23 +57,25 @@ class GraphicFragment : Fragment() {
         horizontalBarChart = view.findViewById(R.id.horizontalBarChart)
         toggleButton = view.findViewById(R.id.toggleButtonGroup)
         rvCardView = view.findViewById(R.id.recyclerViewGraphic)
-        progressBarGraphic = view.findViewById(R.id.progressBarGraphic)
-        progressBarGraphic.visibility = View.VISIBLE
-
-        getDataFromAPI()
-
-        val totalLitros = viewModel.totalLitros
-        val totalAnimais = viewModel.totalAnimais
-        val mediaPrimeiro = viewModel.mediaPrimeira
-        val mediaSegunda = viewModel.mediaSegunda
+        imageViewEmpty = view.findViewById(R.id.imageViewGraphicEmpty)
+        textViewEmpty = view.findViewById(R.id.textViewGraphicEmpty)
 
         val cardViewItem = listOf(
-            CardItem("Total de Litros", totalLitros.toString()),
-            CardItem("Total de Animais", totalAnimais.toString()),
-            CardItem("Média da 1ª Ordenha", mediaPrimeiro.toString()),
-            CardItem("Média da 2ª Ordenha", mediaSegunda.toString())
+            totalLitros?.let { CardItem("Total de Litros", it) },
+            totalAnimais?.let { CardItem("Total de Animais", it) },
+            mediaPrimeiro?.let { CardItem("Média da 1ª Ordenha", it) },
+            mediaSegunda?.let { CardItem("Média da 2ª Ordenha", it) }
         )
-        cardAdapter.submitList(cardViewItem)
+        if (totalLitros == null && totalAnimais == null && mediaPrimeiro == null && mediaSegunda == null) {
+            imageViewEmpty.visibility = View.VISIBLE
+            textViewEmpty.visibility = View.VISIBLE
+        } else {
+            imageViewEmpty.visibility = View.GONE
+            textViewEmpty.visibility = View.GONE
+            cardAdapter.submitList(cardViewItem)
+        }
+
+        getDataFromAPI()
 
         val animationDuration = 1000L
 
@@ -131,7 +136,6 @@ class GraphicFragment : Fragment() {
                 url,
                 null,
                 { response ->
-                    progressBarGraphic.visibility = View.GONE
                     try {
                         val data = response.getJSONArray("user")
                         for (i in 1 until data.length()) {
@@ -169,6 +173,7 @@ class GraphicFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         listUpdate()
+        getData()
     }
 
     private fun listUpdate() {
@@ -176,6 +181,21 @@ class GraphicFragment : Fragment() {
             graphicAdapter.submitList(list)
         }
         viewModel.listLiveData.observe(this, observer)
+    }
+
+    private fun getData() {
+        viewModel.getTotalLitros.observe(requireActivity(), Observer { getTotalLitros ->
+            totalLitros = getTotalLitros.toString()
+        })
+        viewModel.getTotalAnimais.observe(requireActivity(), Observer { getTotalAnimais ->
+            totalAnimais = getTotalAnimais.toString()
+        })
+        viewModel.getMediaPrimeira.observe(requireActivity(), Observer { getMediaPrimeira ->
+            mediaPrimeiro = getMediaPrimeira.toString()
+        })
+        viewModel.getMediaSegunda.observe(requireActivity(), Observer { getMediaSegunda ->
+            mediaSegunda = getMediaSegunda.toString()
+        })
     }
 
     companion object {

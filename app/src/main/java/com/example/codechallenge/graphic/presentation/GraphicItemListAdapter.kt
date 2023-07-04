@@ -1,4 +1,4 @@
-package com.example.codechallenge.presentation.adapter
+package com.example.codechallenge.graphic.presentation
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.codechallenge.R
-import com.example.codechallenge.data.entities.GraphicItem
+import com.example.codechallenge.graphic.data.entities.GraphicItem
 
 class GraphicItemListAdapter() :
     ListAdapter<GraphicItem, GraphicItemListAdapter.GraphicItemViewHolder>(GraphicItemListAdapter) {

@@ -1,4 +1,4 @@
-package com.example.codechallenge.presentation.viewmodel
+package com.example.codechallenge.home.presentation
 
 import android.app.Application
 import android.widget.TextView
@@ -6,11 +6,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import com.example.codechallenge.data.ActionType
+import com.example.codechallenge.main.data.ActionType
 import com.example.codechallenge.TableApplication
-import com.example.codechallenge.data.TableType
-import com.example.codechallenge.data.dao.TableDao
-import com.example.codechallenge.data.entities.TableItem
+import com.example.codechallenge.home.data.TableType
+import com.example.codechallenge.home.data.dao.TableDao
+import com.example.codechallenge.home.data.entities.TableItem
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -21,41 +21,11 @@ class HomeViewModel(
 ) : ViewModel() {
 
     val listLiveData: LiveData<List<TableItem>> = tableDao.getAll()
-
-    fun getTotal(view: TextView) {
-        viewModelScope.launch(dispatcher) {
-            val total = tableDao.getTotal()
-            view.text = total.toString()
-        }
-    }
-
-    fun getPrimeiraMax(view: TextView) {
-        viewModelScope.launch(dispatcher) {
-            val primeiraMax = tableDao.getPrimeiraMax()
-            view.text = primeiraMax.toString()
-        }
-    }
-
-    fun getPrimeiraMin(view: TextView) {
-        viewModelScope.launch(dispatcher) {
-            val primeiraMix = tableDao.getPrimeiraMin()
-            view.text = primeiraMix.toString()
-        }
-    }
-
-    fun getSegundaMax(view: TextView) {
-        viewModelScope.launch(dispatcher) {
-            val segundaMax = tableDao.getSegundaMax()
-            view.text = segundaMax.toString()
-        }
-    }
-
-    fun getSegundaMin(view: TextView) {
-        viewModelScope.launch(dispatcher) {
-            val segundaMix = tableDao.getSegundaMin()
-            view.text = segundaMix.toString()
-        }
-    }
+    val getTotal: LiveData<Float> = tableDao.getTotal()
+    val getPrimeiraMax: LiveData<Float> = tableDao.getPrimeiraMax()
+    val getPrimeiraMin: LiveData<Float> = tableDao.getPrimeiraMin()
+    val getSegundaMax: LiveData<Float> = tableDao.getSegundaMax()
+    val getSegundaMin: LiveData<Float> = tableDao.getSegundaMin()
 
     fun execute(tableType: TableType) {
         when (tableType.actionType) {

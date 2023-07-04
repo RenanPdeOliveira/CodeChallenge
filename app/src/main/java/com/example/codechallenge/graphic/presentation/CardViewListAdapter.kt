@@ -1,4 +1,4 @@
-package com.example.codechallenge.presentation.adapter
+package com.example.codechallenge.graphic.presentation
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.codechallenge.R
-import com.example.codechallenge.data.entities.CardItem
+import com.example.codechallenge.graphic.data.entities.CardItem
 
 class CardViewListAdapter() :
     ListAdapter<CardItem, CardViewListAdapter.CardViewHolder>(CardViewListAdapter) {

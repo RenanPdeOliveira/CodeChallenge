@@ -1,9 +1,9 @@
 package com.example.codechallenge
 
 import android.widget.TextView
-import com.example.codechallenge.data.dao.TableDao
-import com.example.codechallenge.data.entities.TableItem
-import com.example.codechallenge.presentation.viewmodel.HomeViewModel
+import com.example.codechallenge.home.data.dao.TableDao
+import com.example.codechallenge.home.data.entities.TableItem
+import com.example.codechallenge.home.presentation.HomeViewModel
 import kotlinx.coroutines.test.runTest
 import org.junit.Test
 import org.mockito.kotlin.mock

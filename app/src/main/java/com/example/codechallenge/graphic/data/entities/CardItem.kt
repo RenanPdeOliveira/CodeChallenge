@@ -1,4 +1,4 @@
-package com.example.codechallenge.data.entities
+package com.example.codechallenge.graphic.data.entities
 
 data class CardItem(
     val title: String,

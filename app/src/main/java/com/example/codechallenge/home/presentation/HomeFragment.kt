@@ -1,10 +1,11 @@
-package com.example.codechallenge.presentation
+package com.example.codechallenge.home.presentation
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
@@ -15,18 +16,18 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
-import com.example.codechallenge.data.ActionType
+import com.example.codechallenge.main.data.ActionType
 import org.json.JSONException
 import com.example.codechallenge.R
-import com.example.codechallenge.data.TableType
-import com.example.codechallenge.data.entities.TableItem
-import com.example.codechallenge.presentation.adapter.TableItemListAdapter
-import com.example.codechallenge.presentation.viewmodel.HomeViewModel
+import com.example.codechallenge.home.data.TableType
+import com.example.codechallenge.home.data.entities.TableItem
 
 class HomeFragment : Fragment() {
 
     private lateinit var rvTable: RecyclerView
     private lateinit var progressBar: ProgressBar
+    private lateinit var imageViewEmpty: ImageView
+    private lateinit var textViewEmpty: TextView
     private lateinit var tvTotal: TextView
     private lateinit var tvPrimeiraMax: TextView
     private lateinit var tvPrimeiraMin: TextView
@@ -57,13 +58,9 @@ class HomeFragment : Fragment() {
         tvSegundaMin = view.findViewById(R.id.textViewSegundaMinNum)
         rvTable = view.findViewById(R.id.recyclerViewTable)
         progressBar = view.findViewById(R.id.progressBar)
+        imageViewEmpty = view.findViewById(R.id.imageViewHomeEmpty)
+        textViewEmpty = view.findViewById(R.id.textViewHomeEmpty)
         progressBar.visibility = View.VISIBLE
-
-        viewModel.getTotal(tvTotal)
-        viewModel.getPrimeiraMax(tvPrimeiraMax)
-        viewModel.getPrimeiraMin(tvPrimeiraMin)
-        viewModel.getSegundaMax(tvSegundaMax)
-        viewModel.getSegundaMin(tvSegundaMin)
 
         getDataFromAPI()
     }
@@ -123,8 +120,30 @@ class HomeFragment : Fragment() {
     private fun listUpdate() {
         val observer = Observer<List<TableItem>> { list ->
             adapter.submitList(list)
+            if (list.isEmpty()) {
+                imageViewEmpty.visibility = View.VISIBLE
+                textViewEmpty.visibility = View.VISIBLE
+            } else {
+                imageViewEmpty.visibility = View.GONE
+                textViewEmpty.visibility = View.GONE
+            }
         }
         viewModel.listLiveData.observe(this, observer)
+        viewModel.getTotal.observe(this, Observer { total ->
+            tvTotal.text = total.toString()
+        })
+        viewModel.getPrimeiraMax.observe(this, Observer { primeiraMax ->
+            tvPrimeiraMax.text = primeiraMax.toString()
+        })
+        viewModel.getPrimeiraMin.observe(this, Observer { primeiraMin ->
+            tvPrimeiraMin.text = primeiraMin.toString()
+        })
+        viewModel.getSegundaMax.observe(this, Observer { segundaMax ->
+            tvSegundaMax.text = segundaMax.toString()
+        })
+        viewModel.getSegundaMin.observe(this, Observer { segundaMin ->
+            tvSegundaMin.text = segundaMin.toString()
+        })
     }
 
     companion object {

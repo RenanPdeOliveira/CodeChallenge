@@ -1,8 +1,8 @@
 package com.example.codechallenge
 
-import com.example.codechallenge.data.dao.GraphicDao
-import com.example.codechallenge.data.entities.GraphicItem
-import com.example.codechallenge.presentation.viewmodel.GraphicViewModel
+import com.example.codechallenge.graphic.data.dao.GraphicDao
+import com.example.codechallenge.graphic.data.entities.GraphicItem
+import com.example.codechallenge.graphic.presentation.GraphicViewModel
 import kotlinx.coroutines.test.runTest
 import org.junit.Test
 import org.mockito.kotlin.mock

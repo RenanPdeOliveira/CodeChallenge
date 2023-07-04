@@ -1,11 +1,11 @@
-package com.example.codechallenge.data.dao
+package com.example.codechallenge.home.data.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.codechallenge.data.entities.TableItem
+import com.example.codechallenge.home.data.entities.TableItem
 
 @Dao
 interface TableDao {
@@ -17,17 +17,17 @@ interface TableDao {
     fun getAll(): LiveData<List<TableItem>>
 
     @Query("SELECT SUM(total) FROM TableItem")
-    fun getTotal(): Float
+    fun getTotal(): LiveData<Float>
 
     @Query("SELECT MAX(primeiro) FROM TableItem")
-    fun getPrimeiraMax(): Float
+    fun getPrimeiraMax(): LiveData<Float>
 
     @Query("SELECT MIN(primeiro) FROM TableItem")
-    fun getPrimeiraMin(): Float
+    fun getPrimeiraMin(): LiveData<Float>
 
     @Query("SELECT MAX(segundo) FROM TableItem")
-    fun getSegundaMax(): Float
+    fun getSegundaMax(): LiveData<Float>
 
     @Query("SELECT MIN(segundo) FROM TableItem")
-    fun getSegundaMin(): Float
+    fun getSegundaMin(): LiveData<Float>
 }

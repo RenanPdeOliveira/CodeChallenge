@@ -1,6 +1,6 @@
-package com.example.codechallenge.data
+package com.example.codechallenge.graphic.data
 
-import com.example.codechallenge.data.entities.GraphicItem
+import com.example.codechallenge.graphic.data.entities.GraphicItem
 import java.io.Serializable
 
 data class GraphicType(

@@ -3,14 +3,16 @@
 
     <item
         android:id="@+id/homeButtonMenu"
-        android:title="Home"
+        android:contentDescription="Pagina principal"
         android:icon="@drawable/baseline_home_bottom_menu"
-        android:contentDescription="Pagina principal" />
+        android:title="Home" />
+
+    <item android:title="" />
 
     <item
         android:id="@+id/graphicButtonMenu"
-        android:title="Gráficos"
+        android:contentDescription="Pagina de gráficos"
         android:icon="@drawable/baseline_table_bottom_menu"
-        android:contentDescription="Pagina de gráficos" />
+        android:title="Gráficos" />
 
 </menu>

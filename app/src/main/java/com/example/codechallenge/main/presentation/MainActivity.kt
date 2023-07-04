@@ -1,10 +1,12 @@
-package com.example.codechallenge.presentation
+package com.example.codechallenge.main.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import com.example.codechallenge.R
+import com.example.codechallenge.graphic.presentation.GraphicFragment
+import com.example.codechallenge.home.presentation.HomeFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -16,6 +18,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         bottomNavView = findViewById(R.id.bottomNavigationView)
+        bottomNavView.menu.getItem(1).isEnabled = false
 
         val homeFragment = HomeFragment.newInstance()
         val graphicFragment = GraphicFragment.newInstance()

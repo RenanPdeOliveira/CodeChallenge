@@ -1,4 +1,4 @@
-package com.example.codechallenge.presentation.viewmodel
+package com.example.codechallenge.graphic.presentation
 
 import android.app.Application
 import androidx.lifecycle.LiveData
@@ -6,10 +6,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.codechallenge.TableApplication
-import com.example.codechallenge.data.ActionType
-import com.example.codechallenge.data.GraphicType
-import com.example.codechallenge.data.dao.GraphicDao
-import com.example.codechallenge.data.entities.GraphicItem
+import com.example.codechallenge.main.data.ActionType
+import com.example.codechallenge.graphic.data.GraphicType
+import com.example.codechallenge.graphic.data.dao.GraphicDao
+import com.example.codechallenge.graphic.data.entities.GraphicItem
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -20,26 +20,10 @@ class GraphicViewModel(
 ) : ViewModel() {
 
     val listLiveData: LiveData<List<GraphicItem>> = graphicDao.getAll()
-
-    var totalLitros: Double = 0.0
-    var totalAnimais: Int = 0
-    var mediaPrimeira: Int = 0
-    var mediaSegunda: Int = 0
-
-    init {
-        viewModelScope.launch(dispatcher) {
-            totalLitros = graphicDao.getTotalLitros()
-        }
-        viewModelScope.launch(dispatcher) {
-            totalAnimais = graphicDao.getTotalAnimais()
-        }
-        viewModelScope.launch(dispatcher) {
-            mediaPrimeira = graphicDao.getMediaPrimeira()
-        }
-        viewModelScope.launch(dispatcher) {
-            mediaSegunda = graphicDao.getMediaSegunda()
-        }
-    }
+    val getTotalLitros: LiveData<Double> = graphicDao.getTotalLitros()
+    val getTotalAnimais: LiveData<Int> = graphicDao.getTotalAnimais()
+    val getMediaPrimeira: LiveData<Int> = graphicDao.getMediaPrimeira()
+    val getMediaSegunda: LiveData<Int> = graphicDao.getMediaSegunda()
 
     fun execute(graphicType: GraphicType) {
         when (graphicType.actionType) {

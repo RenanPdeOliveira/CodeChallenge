@@ -1,4 +1,4 @@
-package com.example.codechallenge.data.entities
+package com.example.codechallenge.home.data.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

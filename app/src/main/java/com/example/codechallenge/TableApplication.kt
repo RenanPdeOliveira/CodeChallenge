@@ -2,7 +2,7 @@ package com.example.codechallenge
 
 import android.app.Application
 import androidx.room.Room
-import com.example.codechallenge.data.db.TableDataBase
+import com.example.codechallenge.main.data.db.TableDataBase
 
 class TableApplication : Application() {
 

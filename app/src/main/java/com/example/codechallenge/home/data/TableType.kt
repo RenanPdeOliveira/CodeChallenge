@@ -1,6 +1,6 @@
-package com.example.codechallenge.data
+package com.example.codechallenge.home.data
 
-import com.example.codechallenge.data.entities.TableItem
+import com.example.codechallenge.home.data.entities.TableItem
 import java.io.Serializable
 
 data class TableType(
