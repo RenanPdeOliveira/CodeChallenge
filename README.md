@@ -7,7 +7,6 @@ PT - Este foi o primeiro code challenge que eu fiz no qual consegui minha primei
 <!-- You can add more screenshots here if you like -->
 <img src="/results/Screenshot_CodeChallenge_3.png" width="260">&emsp;<img src="/results/Screenshot_CodeChallenge_1.png" width="260">&emsp;<img src="/results/Screenshot_CodeChallenge_2.png" width="260"><img src="/results/Screenshot_CodeChallenge_4.png" width="260">
 
-
 ## Technologies
 * Kotlin
 * Activity
@@ -51,12 +50,11 @@ PT - Este foi o primeiro code challenge que eu fiz no qual consegui minha primei
 * EmptyState in case API doesn't load the data
 * FindViewById to recover UI components
 
-
 ### TODO
-* Improve app styling
-* Improve Unit Tests
-* Implement Coroutines
-* Implement Retrofit
+- [ ] Improve app styling
+- [ ] Improve Unit Tests
+- [ ] Implement Coroutines
+- [ ] Implement Retrofit
 
 ## Author
 Renan Pires de Oliveira (connect with me on [Linkedin](https://www.linkedin.com/in/renan-pires-332568142/))
